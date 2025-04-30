@@ -1,0 +1,46 @@
+:root {
+    --main-pink: #F5AFB7;
+    --main-dark-pink: #E1858E;
+    --main-grey-green: #6F7560;
+    --main-lila: #684954;
+    --main-creamy: #F1E8DC;
+    --main-light-green: #56c789;
+    --main-dark-green: #48463F;
+    --main-bordeaux: #4D2128;
+    --main-dark-lila: #312A2F;
+}
+
+.tarjeta_dado {
+  background-color: var(--main-pink);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: outset;
+  border-color: var(--main-dark-lila);
+}
+
+img{
+  width: 150px;
+  max-height: auto;
+  padding: 20px;
+}
+
+#d_100{
+  width: 190px;
+  max-height: auto;
+}
+
+#d_8, #d_10, #d_20 {
+  max-width: 135px;
+}
+
+input{
+  max-width: 70px;
+  margin: 10px;
+}
