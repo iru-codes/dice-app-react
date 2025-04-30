@@ -1,4 +1,5 @@
 import React from "react"
+import  "./ResultDisplay.css"
 
 
 export default function ResultDisplay({ results }) {
@@ -15,7 +16,7 @@ export default function ResultDisplay({ results }) {
               {res.tiradas.map((t, i) => (
                 <span key={i}>
                     {t.modificador !== 0
-                    ? `${t.base} ${t.modificador > 0 ? "+" : "-"} ${Math.abs(t.modificador)} = ${t.total}`
+                    ? `${t.base} ${t.modificador > 0 ? "+" : "-"} ${Math.abs(t.modificador)} = ${t.tirada}`
                     : `${t.base}`}
                 </span>
               )).reduce((prev, curr) => [prev, <br />, curr])}
