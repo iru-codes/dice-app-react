@@ -1,0 +1,84 @@
+import React from 'react';
+import "./DicePreferences.css";
+
+export default function DicePreferences({ preferences, onChange }) {
+    const handleChange = (e) => {
+        const { name, type, checked, value } = e.target;
+        const newValue = type === "checkbox" ? checked : value;
+        onChange(name, type === "number" ? parseInt(newValue) || 0 : newValue);
+    }
+
+    return (
+        <div className="menu_resultados">
+            <h4 className="subtitulo">Preferencias</h4>
+
+            <div className="menu">
+                <p id="check_suma">
+                <input
+                    type="checkbox"
+                    name="sumatoria"
+                    checked={preferences.sumatoria}
+                    onChange={handleChange}
+                />
+                Sumar resultados
+                </p>
+
+                <div id="num_objetivo">
+                <p>
+                    <span>
+                    <input
+                        type="radio"
+                        name="comparador"
+                        value="mayor"
+                        checked={preferences.comparador === "mayor"}
+                        onChange={handleChange}
+                    />
+                    Mayor que...
+                    </span>
+                    <span>
+                    <input
+                        type="radio"
+                        name="comparador"
+                        value="menor"
+                        checked={preferences.comparador === "menor"}
+                        onChange={handleChange}
+                    />
+                    Menor que...
+                    </span>
+                </p>
+
+                <p id="check_mod">
+                    Ingresá el valor:
+                    <input
+                    type="number"
+                    name="objetivo"
+                    min="0"
+                    value={preferences.objetivo}
+                    onChange={handleChange}
+                    />
+                </p>
+                </div>
+
+                <p>
+                Modificadores:
+                <input
+                    type="number"
+                    name="modificador"
+                    value={preferences.modificador}
+                    onChange={handleChange}
+                />
+                </p>
+            </div>
+
+            <p>
+                <input
+                type="checkbox"
+                name="multiples"
+                checked={preferences.multiples}
+                onChange={handleChange}
+                />
+                Tirar varios dados
+            </p>
+    </div>
+    )
+}
