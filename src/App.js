@@ -3,6 +3,8 @@ import { useState } from 'react';
 import React from 'react';
 import DiceCard from './components/DiceCard/DiceCard';
 import DicePreferences from './components/DicePreferences/DicePreferences';
+import  DiceRollButton from './components/DiceRollButton/DiceRollButton';
+import ResultDisplay from "./components/ResultDisplay/ResultDisplay"
 
 const DICE_TYPES = [4, 6, 8, 10, 12, 20, 100];
 
@@ -24,6 +26,8 @@ export default function App() {
     modificador: 0,
     multiples: false
   });
+
+  const [results, setResults] = useState([])
 
   const updateDiceCount = (faces, value) => {
     setDiceCounts(prev => ({ ...prev, [faces]: value }));
@@ -53,6 +57,14 @@ export default function App() {
       preferences = {preferences}
       onChange = {updatePreferences}
     />
+
+    <DiceRollButton
+      diceCounts  = {diceCounts}
+      preferences = {preferences}
+      onRoll = {setResults} 
+    />
+
+    <ResultDisplay results={results} preferences={preferences} />
   </div>
   );
 }
