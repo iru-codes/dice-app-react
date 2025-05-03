@@ -1,11 +1,25 @@
 import React from 'react';
 import "./DicePreferences.css";
 
-export default function DicePreferences({ preferences, onChange }) {
-    const handleChange = (e) => {
+
+export type Preferences = {
+    sumatoria: boolean
+    comparador: "mayor" | "menor"
+    objetivo: number
+    modificador: number
+    multiples: boolean
+}
+
+type DicePreferencesProps = {
+    preferences: Preferences
+    onChange: (name: string, value: boolean | number | string) => void
+}
+
+const DicePreferences: React.FC<DicePreferencesProps> = ({ preferences, onChange }) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, type, checked, value } = e.target;
         const newValue = type === "checkbox" ? checked : value;
-        onChange(name, type === "number" ? parseInt(newValue) || 0 : newValue);
+        onChange(name, type === "number" ? parseInt(String(newValue)) || 0 : newValue);
     }
 
     return (
@@ -82,3 +96,5 @@ export default function DicePreferences({ preferences, onChange }) {
     </div>
     )
 }
+
+export default DicePreferences
