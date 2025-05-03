@@ -1,27 +1,45 @@
 import React from "react";
+
+import d4 from "../../assets/D4.png";
+import d6 from "../../assets/D6.png";
+import d8 from "../../assets/D8.png";
+import d10 from "../../assets/D10.png";
+import d12 from "../../assets/D12.png";
+import d20 from "../../assets/D20.png";
+import d100 from "../../assets/D100.png";
+
 import "./DiceCard.css";
 
-type Props = {
-    faces: number
-    count: number
-    onCountChange: (faces: number, value: number) => void
-    showInput: boolean
+type DiceCardProps = {
+    id: string;
+    value: number;
+    onChange: (value: number) => void;
 }
 
-export default function DiceCard({ faces, count, onCountChange, showInput }: Props) {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = parseInt(e.target.value) || 0;
-        onCountChange(faces, value);
+const DiceCard: React.FC<DiceCardProps> = ({ id, value, onChange }) => {
+    const images: Record<string, string> = {
+        d4,
+        d6,
+        d8,
+        d10,
+        d12,
+        d20,
+        d100,
     }
+
     return (
-        <div className="tarjeta_dado" id={`D${faces}`}>
-            <img src={require(`/src/assets/D${faces}.png`)} alt={`dado de ${faces} caras`} id={`d_${faces}`} />
-            <button className="boton_elegir" >D{faces}</button>
-            {showInput && (
-                <p className="input_veces">
-                    Cantidad: <input type="number" id={`veces_D${faces}`} min="0" value={count} onChange={handleChange} />
-                </p>
-            )}
+        <div className="tarjeta_dado" id={id}>
+            <img src={images[id]} alt={id} id={id} />
+            <button className="boton_elegir" >{id}</button>
+            {value > 0 && <p className="input_veces">{value}</p>}
+            <input 
+                type="number"
+                min={0}
+                value={value}
+                onChange = {(e) => onChange(Number(e.target.value))}    
+            />      
         </div>
     );
 };
+
+export default DiceCard;
