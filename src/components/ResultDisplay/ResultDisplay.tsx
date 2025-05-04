@@ -2,7 +2,19 @@ import React from "react"
 import  "./ResultDisplay.css"
 
 
-export default function ResultDisplay({ results }) {
+export type FullDiceResult = {
+  caras: number
+  tiradas: { base: number; modificador: number; tirada: number }[]
+  suma?: number
+  exitoTotal?: boolean | null
+  exitos?: boolean[]
+}
+
+type ResultDisplayProps = {
+  results: FullDiceResult[]
+}
+
+const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
   if (results.length === 0) return null
 
   return (
@@ -19,18 +31,28 @@ export default function ResultDisplay({ results }) {
                     ? `${t.base} ${t.modificador > 0 ? "+" : "-"} ${Math.abs(t.modificador)} = ${t.tirada}`
                     : `${t.base}`}
                 </span>
-              )).reduce((prev, curr) => [prev, <br />, curr])}
+              )).reduce((prev, curr) => <>
+              {prev}
+              <br />
+              {curr}
+            </>
+          )}
             </p>
             {res.suma && <p className="resultado_suma">Total: {res.suma}</p>}
             {res.exitoTotal !== null && (
               <p className="resultado_estado">{res.exitoTotal ? "¡Exitosa!" : "¡Fallida!"}</p>
-            )}
+              )}
             {res.exitos && (
               <p className="resultado_exitos">
                 {res.exitos.map((ok, i) => (
                   <span key={i}>{`Tirada ${i + 1}: ${ok ? "¡Exitosa!" : "Fallida!"}`}</span>
-                )).reduce((prev, curr) => [prev, <br />, curr])}
-              </p>
+                )).reduce((prev, curr) => <>
+                {prev}
+                <br />
+                {curr}
+              </>
+              )}
+            </p>
             )}
           </div>
         ))}
@@ -38,3 +60,5 @@ export default function ResultDisplay({ results }) {
     </div>
   )
 }
+
+export default ResultDisplay
