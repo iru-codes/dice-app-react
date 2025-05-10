@@ -23,21 +23,24 @@
   text-align: center;
   border: outset;
   border-color: var(--main-dark-lila);
+  cursor: pointer;               /* cambio visual del mouse */
+  transition: transform 0.1s ease;
+}
+
+.tarjeta_dado:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 img{
-  width: 150px;
+  width: 175px;
   max-height: auto;
   padding: 20px;
 }
 
 #d_100{
-  width: 190px;
+  width: 225px;
   max-height: auto;
-}
-
-#d_8, #d_10, #d_20 {
-  max-width: 135px;
 }
 
 input{

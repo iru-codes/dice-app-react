@@ -11,35 +11,46 @@ import d100 from "../../assets/D100.png";
 import "./DiceCard.css";
 
 type DiceCardProps = {
-    id: string;
-    value: number;
-    onChange: (value: number) => void;
+  faces: number
+  count: number
+  onCountChange: (faces: number, value: number) => void
+  showInput: boolean
+  onSingleRoll?: (faces: number) => void
 }
 
-const DiceCard: React.FC<DiceCardProps> = ({ id, value, onChange }) => {
-    const images: Record<string, string> = {
-        d4,
-        d6,
-        d8,
-        d10,
-        d12,
-        d20,
-        d100,
+const DiceCard: React.FC<DiceCardProps> = ({ faces, count, onCountChange, showInput, onSingleRoll }) => {
+  const images: Record<number, string> = {
+    4: d4,
+    6: d6,
+    8: d8,
+    10: d10,
+    12: d12,
+    20: d20,
+    100: d100,
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value) || 0
+    onCountChange(faces, value)
+  }
+
+  const handleSingleRoll = () => {
+    if (onSingleRoll) {
+      onSingleRoll(faces)
     }
+  }
 
-    return (
-        <div className="tarjeta_dado" id={id}>
-            <img src={images[id]} alt={id} id={id} />
-            <button className="boton_elegir" >{id}</button>
-            {value > 0 && <p className="input_veces">{value}</p>}
-            <input 
-                type="number"
-                min={0}
-                value={value}
-                onChange = {(e) => onChange(Number(e.target.value))}    
-            />      
-        </div>
-    );
-};
+  return (
+    <div className="tarjeta_dado" id={`D${faces}`} onClick={handleSingleRoll}>
+      <img src={images[faces]} alt={`dado de ${faces} caras`} id={`d_${faces}`} />
+      
+      {showInput && (
+        <p className="input_veces">
+          Cantidad: <input type="number" min="0" value={count} onChange={handleChange} id={`veces_D${faces}`} />
+        </p>
+      )}
+    </div>
+  )
+}
 
-export default DiceCard;
+export default DiceCard
