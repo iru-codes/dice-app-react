@@ -39,6 +39,7 @@ p.resultado_header {
 #resultado_total{
     display: flex;
     flex-direction: row nowrap;
+    font-family: "Cagliostro", sans-serif;
 }
 
 .resultado_dado {
