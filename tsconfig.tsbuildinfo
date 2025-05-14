@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/animatedlogo/animatedlogo.tsx","./src/components/dicecard/dicecard.tsx","./src/components/dicepreferences/dicepreferences.tsx","./src/components/dicerollbutton/dicerollbutton.tsx","./src/components/resetbutton/resetbutton.tsx","./src/components/resultdisplay/resultdisplay.tsx"],"version":"5.8.3"}

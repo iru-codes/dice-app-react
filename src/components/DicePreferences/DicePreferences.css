@@ -1,0 +1,50 @@
+:root {
+    --main-pink: #F5AFB7;
+    --main-dark-pink: #E1858E;
+    --main-grey-green: #6F7560;
+    --main-lila: #684954;
+    --main-creamy: #F1E8DC;
+    --main-light-green: #56c789;
+    --main-dark-green: #48463F;
+    --main-bordeaux: #4D2128;
+    --main-dark-lila: #312A2F;
+}
+
+.menu_resultados .subtitulo {
+    color: var(--main-dark-lila);
+    font-size: 2.3rem;
+    margin: 1.5rem;
+    text-decoration: underline;
+}
+
+.menu_resultados {
+    display: flex;
+    flex-flow: column wrap;
+    border-radius: 16px;
+}
+
+.menu, .resultado{
+    align-items: center;
+    padding: 0 20px;
+    min-width: 500px;
+    font-size: larger;
+}
+
+.disabled-checkbox{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.mod, #num_objetivo, #check_suma{
+    border: 2px solid var(--main-dark-green);
+    border-radius: 8px;
+    border-style: outset;
+    padding: 10px;
+    background-color: var(--main-dark-lila);
+    color: var(--main-creamy);
+}
+
+.check_multi{
+    color: var(--main-dark-lila);
+    font-size: 1.75rem;
+}

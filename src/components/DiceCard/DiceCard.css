@@ -1,0 +1,54 @@
+:root {
+    --main-pink: #F5AFB7;
+    --main-dark-pink: #E1858E;
+    --main-grey-green: #6F7560;
+    --main-lila: #684954;
+    --main-creamy: #F1E8DC;
+    --main-light-green: #56c789;
+    --main-dark-green: #48463F;
+    --main-bordeaux: #4D2128;
+    --main-dark-lila: #312A2F;
+}
+
+.tarjeta_dado {
+  background-color: var(--main-pink);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 225px;
+  height: 225px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: outset;
+  border-color: var(--main-dark-pink);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.tarjeta_dado:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+img{
+  width: 175px;
+  max-height: auto;
+  padding: 20px;
+}
+
+#d_100{
+  width: 225px;
+  max-height: auto;
+}
+
+input{
+  max-width: 70px;
+  margin: 10px;
+}
+
+.input_veces{
+  color: var(--main-pink);
+}
