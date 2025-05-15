@@ -48,6 +48,6 @@ p.resultado_header {
     color: var(--main-dark-green);
     border-radius: 8px;
     margin: 5px;
-    width: 150px;
-    font-size: 1.5rem;
+    width: 175px;
+    font-size: 1.25rem;
 }
