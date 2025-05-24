@@ -87,7 +87,7 @@ button {
 
 .dados {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   width: 55%;
@@ -95,6 +95,43 @@ button {
   border-radius: 16px;
   border-style: outset;
   border-color: var(--main-lila);
+}
+
+@media (max-width: 768px) {
+  .App {
+    justify-items: center;
+    min-width: 500px;
+  }
+  
+  .dados {
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    flex-flow: row wrap;
+  }
+
+  .intro_container {
+    width: 90%;
+  }
+
+  .intro_container img {
+    width: 125px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .menu, .resultados {
+    width: 90%;
+    min-width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .caja_resultado{

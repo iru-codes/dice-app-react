@@ -52,3 +52,35 @@ input{
 .input_veces{
   color: var(--main-pink);
 }
+
+@media (max-width: 768px) {
+  .tarjeta_dado {
+    width: 112px;
+    height: 112px;
+    padding: 5px;
+  }
+
+  .tarjeta_dado_contenedor {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    width: 125px;
+  }
+
+  .input_veces {
+    font-size: 1rem;
+    width: 100px;
+  }
+
+  #d_100 {
+    width: 140px;
+  }
+
+  #d_8 {
+    width: 115px;
+  }
+}
